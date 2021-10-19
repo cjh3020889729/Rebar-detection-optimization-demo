@@ -89,6 +89,7 @@ python code/train.py > log
 | **baseline: YOLOv3 - MobileNetV1+label_smooth=False +img_size(480)** |      **152.40**       | 65.3         | 38.3       |
 | YOLOv3 + MobileNetV1 + label_smooth=True +img_size(480) |        154.46         | 63.2         | 29.1       |
 | YOLOv3 + MobileNetV1 + label_smooth=True + cluster_yolo_anchor+img_size(480) |        156.86         | 57.4         | 29.0       |
+| YOLOv3 + ResNet34 + label_smooth=False + img_size(480) |        154.49         | 67.8         | 45.4       |
 | YOLOv3 + ResNet34 + label_smooth=False  +cluster_yolo_anchor+ img_size(480) |        154.49         | 66.5         | 37.7       |
 | PPYOLO + ResNet50_vd_ssld+ label_smooth=False+ cluster_yolo_anchor + img_size(608) |        221.31         | 66.5         | 43.7       |
 | YOLOv3 + DarkNet53 + label_smooth=False+ img_size(608)       |        173.05         | 67.9         | 47.1       |
