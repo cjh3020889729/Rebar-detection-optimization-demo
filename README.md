@@ -94,8 +94,8 @@ python code/train.py > log
 | YOLOv3 + ResNet34 + label_smooth=False + img_size(608)   |        117.82         | 69.2     | 48.1   |
 | YOLOv3 + ResNet50_vd_ssld + label_smooth=False + img_size(480) |        120.16         | 67.9         | 48.4       |
 | **YOLOv3 + ResNet50_vd_ssld + label_smooth=False + img_size(608)** |        120.44         | **69.6**         | **49.7**       |
-| YOLOv3 + DarkNet53 + label_smooth=False+ img_size(608)       |        173.05         | 67.9         | 47.1       |
-|                                                              |                       |              |            |
+| YOLOv3 + DarkNet53 + label_smooth=False+ img_size(480)       |        119.24         | 67.7         | 46.2       |
+| YOLOv3 + DarkNet53 + label_smooth=False+ img_size(608)       |        120.05         | 67.9         | 47.1       |
 
 
 注意: 
