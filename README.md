@@ -132,8 +132,8 @@ anchor_masks = [[6, 7, 8], [3, 4, 5], [0, 1, 2]]
 
 - | 模型                                                         | 推理时间 （ms/image） | map(Iou-0.5) | (coco)mmap |
   | ------------------------------------------------------------ | --------------------- | ------------ | ---------- |
-  | **baseline: YOLOv3 - MobileNetV1+label_smooth=False +img_size(480)** | **152.40**            | 65.3         | 38.3       |
-  | **YOLOv3 + ResNet34 + label_smooth=False + img_size(608)**   | 161.45                | **69.2**     | **48.1**   |
+  | **baseline: YOLOv3 - MobileNetV1+label_smooth=False +img_size(480)** | **114.15**            | 65.3         | 38.3       |
+  | **YOLOv3 + ResNet34 + label_smooth=False + img_size(608)**   | 117.82               | **69.2**     | **48.1**   |
 
 ## 6.模型预测
 
@@ -170,7 +170,7 @@ paddlex --export_inference --model_dir=output/yolov3_resnet34/best_model --save_
 
 | 模型                                                       | 推理时间 (ms/image) | map(Iou-0.5) | (coco)mmap |
 | ---------------------------------------------------------- | ------------------- | ------------ | ---------- |
-| **YOLOv3 + ResNet34 + label_smooth=False + img_size(608)** | 161.45              | **69.2**     | **48.1**   |
+| **YOLOv3 + ResNet34 + label_smooth=False + img_size(608)** | 117.82              | **69.2**     | **48.1**   |
 |                                                            |                     |              |            |
 
 **上线模型的PR曲线:**
@@ -193,7 +193,7 @@ paddlex --export_inference --model_dir=output/yolov3_resnet34/best_model --save_
 
 | 模型                                                         | 推理时间 (ms/image) | map(Iou-0.5) | (coco)mmap |
 | ------------------------------------------------------------ | ------------------- | ------------ | ---------- |
-| **baseline: YOLOv3 - MobileNetV1+label_smooth=False +img_size(480)** | **152.40**          | 65.3         | 38.3       |
+| **baseline: YOLOv3 - MobileNetV1+label_smooth=False +img_size(480)** | **114.15**          | 65.3         | 38.3       |
 |                                                              |                     |              |            |
 
 **上线模型的PR曲线:**
