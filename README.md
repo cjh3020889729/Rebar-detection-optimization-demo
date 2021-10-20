@@ -133,7 +133,7 @@ anchor_masks = [[6, 7, 8], [3, 4, 5], [0, 1, 2]]
 - | 模型                                                         | 推理时间 （ms/image） | map(Iou-0.5) | (coco)mmap |
   | ------------------------------------------------------------ | --------------------- | ------------ | ---------- |
   | **baseline: YOLOv3 - MobileNetV1+label_smooth=False +img_size(480)** | **114.15**            | 65.3         | 38.3       |
-  | **YOLOv3 + ResNet34 + label_smooth=False + img_size(608)**   | 117.82               | **69.2**     | **48.1**   |
+  | **YOLOv3 + ResNet50_vd_ssld + label_smooth=False + img_size(608)** |        120.44         | **69.6**         | **49.7**       |
 
 ## 6.模型预测
 
@@ -155,7 +155,7 @@ python code/infer.py
 模型训练后保存在output文件夹，如果要使用PaddleInference进行部署需要导出成静态图的模型,运行如下命令，会自动在output文件夹下创建一个`inference_model`的文件夹，用来存放导出后的模型。
 
 ```
-paddlex --export_inference --model_dir=output/yolov3_resnet34/best_model --save_dir=output/inference_model --fixed_input_shape=[608,608]
+paddlex --export_inference --model_dir=output/yolov3_ResNet50_vd_ssld/best_model --save_dir=output/inference_model --fixed_input_shape=[608,608]
 ```
 
 **注意**：设定 fixed_input_shape 的数值需与 eval_transforms 中设置的 target_size 数值上保持一致。
@@ -164,14 +164,13 @@ paddlex --export_inference --model_dir=output/yolov3_resnet34/best_model --save_
 
 ## (1)针对GPU端部署
 
-本案例选择**面向GPU端**的最终方案是选择一阶段检测模型**YOLOV3**，其骨干网络选择加入了**ResNet34**，训练阶段数据增强策略采用RandomHorizontalFlip、RandomDistort、RandomCrop等。
+本案例选择**面向GPU端**的最终方案是选择一阶段检测模型**YOLOV3**，其骨干网络选择加入了**ResNet50_vd_ssld**，训练阶段数据增强策略采用RandomHorizontalFlip、RandomDistort、RandomCrop等。
 
-在Tesla V100的Linux系统下，模型的推理时间大约为**161.45ms/image**，包括**transform、输入数据拷贝至GPU的时间、计算时间、数据拷贝至CPU**的时间。
+在Tesla V100的Linux系统下，模型的推理时间大约为**120.44ms/image**，包括**transform、输入数据拷贝至GPU的时间、计算时间、数据拷贝至CPU**的时间。
 
 | 模型                                                       | 推理时间 (ms/image) | map(Iou-0.5) | (coco)mmap |
 | ---------------------------------------------------------- | ------------------- | ------------ | ---------- |
-| **YOLOv3 + ResNet34 + label_smooth=False + img_size(608)** | 117.82              | **69.2**     | **48.1**   |
-|                                                            |                     |              |            |
+| **YOLOv3 + ResNet50_vd_ssld + label_smooth=False + img_size(608)** |        120.44         | **69.6**         | **49.7**       |
 
 **上线模型的PR曲线:**
 
@@ -189,12 +188,11 @@ paddlex --export_inference --model_dir=output/yolov3_resnet34/best_model --save_
 
 本案例选择**面向移动端**的最终方案是选择一阶段检测模型**YOLOV3**，其骨干网络选择加入了**MobileNetV1**，训练阶段数据增强策略采用RandomHorizontalFlip、RandomDistort、RandomCrop等。
 
-在Tesla V100的Linux系统下，模型的推理时间大约为**152.40ms/image**，包括**transform、输入数据拷贝至GPU的时间、计算时间、数据拷贝至CPU**的时间。
+在Tesla V100的Linux系统下，模型的推理时间大约为**114.15ms/image**，包括**transform、输入数据拷贝至GPU的时间、计算时间、数据拷贝至CPU**的时间。
 
 | 模型                                                         | 推理时间 (ms/image) | map(Iou-0.5) | (coco)mmap |
 | ------------------------------------------------------------ | ------------------- | ------------ | ---------- |
 | **baseline: YOLOv3 - MobileNetV1+label_smooth=False +img_size(480)** | **114.15**          | 65.3         | 38.3       |
-|                                                              |                     |              |            |
 
 **上线模型的PR曲线:**
 
@@ -204,7 +202,7 @@ paddlex --export_inference --model_dir=output/yolov3_resnet34/best_model --save_
 
 相对于GPU端上线模型，该模型具有以下优势:
 
-- 模型参数大小仅为: **145MB**，而GPU端模型为:**253MB**。
+- 模型参数大小仅为: **96.8MB**，而GPU端模型为:**181MB**。
 - 输入图像更小，模型计算**时间花销更小**。
 - **召回率更低**，可能有更少的误检——但由于模型轻量化缘故，漏检情况可能会更多一点。
 
