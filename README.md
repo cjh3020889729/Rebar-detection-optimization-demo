@@ -96,7 +96,6 @@ python code/train.py > log
 | **YOLOv3 + ResNet34 + label_smooth=False + img_size(608)**   |        161.45         | **69.2**     | **48.1**   |
 |                                                              |                       |              |            |
 
-> PPYOLO + ResNet50_vd_ssld+ label_smooth=False + img_size(480)的Iou-0.75: 0.611
 
 注意: 
 
