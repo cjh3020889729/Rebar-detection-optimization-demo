@@ -133,7 +133,7 @@ anchor_masks = [[6, 7, 8], [3, 4, 5], [0, 1, 2]]
 - | 模型                                                         | 推理时间 （ms/image） | map(Iou-0.5) | (coco)mmap |
   | ------------------------------------------------------------ | --------------------- | ------------ | ---------- |
   | **baseline: YOLOv3 - MobileNetV1+label_smooth=False +img_size(480)** | **114.15**            | 65.3         | 38.3       |
-  | **YOLOv3 + ResNet50_vd_ssld + label_smooth=False + img_size(608)** |        120.44         | **69.6**         | **49.7**       |
+  | **YOLOv3 + ResNet50_vd_ssld + label_smooth=False + img_size(608)** |        120.44         | **69.0**         | **49.7**       |
 
 ## 6.模型预测
 
@@ -170,7 +170,7 @@ paddlex --export_inference --model_dir=output/yolov3_ResNet50_vd_ssld/best_model
 
 | 模型                                                       | 推理时间 (ms/image) | map(Iou-0.5) | (coco)mmap |
 | ---------------------------------------------------------- | ------------------- | ------------ | ---------- |
-| **YOLOv3 + ResNet50_vd_ssld + label_smooth=False + img_size(608)** |        120.44         | **69.6**         | **49.7**       |
+| **YOLOv3 + ResNet50_vd_ssld + label_smooth=False + img_size(608)** |        120.44         | **69.0**         | **49.7**       |
 
 **上线模型的PR曲线:**
 
