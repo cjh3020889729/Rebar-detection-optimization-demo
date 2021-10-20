@@ -91,7 +91,7 @@ python code/train.py > log
 | YOLOv3 + MobileNetV1 + label_smooth=True + cluster_yolo_anchor+img_size(480) |        114.26         | 57.4         | 29.0       |
 | YOLOv3 + ResNet34 + label_smooth=False + img_size(480) |        116.06         | 67.8         | 45.4       |
 | YOLOv3 + ResNet34 + label_smooth=False  +cluster_yolo_anchor+ img_size(480) |        117.12         | 66.5         | 37.7       |
-| YOLOv3 + ResNet34 + label_smooth=False + img_size(608)   |        161.45         | 69.2     | 48.1   |
+| YOLOv3 + ResNet34 + label_smooth=False + img_size(608)   |        117.82         | 69.2     | 48.1   |
 | YOLOv3 + ResNet50_vd_ssld + label_smooth=False + img_size(480) |        120.16         | 67.9         | 48.4       |
 | **YOLOv3 + ResNet50_vd_ssld + label_smooth=False + img_size(608)** |        120.44         | **69.6**         | **49.7**       |
 | YOLOv3 + DarkNet53 + label_smooth=False+ img_size(608)       |        173.05         | 67.9         | 47.1       |
